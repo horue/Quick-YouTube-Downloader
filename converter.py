@@ -8,11 +8,12 @@ def download(video):
     a=input(f'Download {title}? (Y/N) ')
     if a == 'Y' or a == 'y':
         print('Downloading...')
-        yt.streams.filter(progressive=False, file_extension='mp4').order_by('resolution').last().download()
+        yt.streams.filter(progressive=False, file_extension='webm').order_by('resolution').last().download()
+        main()
     else:
         return
 
 
-
-video=input('Enter the link to the video: ')
-download(video)
+def main():
+    video=input('Enter the link to the video: ')
+    download(video)
