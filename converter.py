@@ -1,7 +1,5 @@
 from pytube import YouTube
 
-
-
 def download(video):
     try:
         yt = YouTube(video)
