@@ -5,10 +5,17 @@ from pytube import YouTube
 def download(video):
     yt = YouTube(video)
     title=yt.title
+    streams = yt.streams.filter(progressive=True)
+
+
+    print('Download options: ')
+    for i, stream in enumerate(streams):
+        print(f'{i+1} - {stream}')
+
     a=input(f'Download {title}? (Y/N) ')
     if a == 'Y' or a == 'y':
         print('Downloading...')
-        yt.streams.filter(progressive=False, file_extension='webm').order_by('resolution').last().download()
+        yt.download()
         main()
     else:
         return
