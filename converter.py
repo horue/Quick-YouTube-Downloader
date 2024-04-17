@@ -16,13 +16,17 @@ def download(video):
         print(f'{i+len(streams)+1} - {audio}')
 
 
-    a=input(f'What option do you want to download {title}? ')
-    if a == 'Y' or a == 'y':
-        print('Downloading...')
-        yt.download()
-        main()
+    a=int(input(f'What option do you want to download {title}? '))
+    a2=a - 1 
+    if a2 < len(streams):
+        selected_stream = streams[a2]
     else:
-        return
+        selected_stream = audios[a2 - len(streams)]
+    print('Downloading...')
+    selected_stream.download()
+    print('Download complete!')
+    main()
+
 
 
 def main():
