@@ -13,12 +13,18 @@ def download(video):
 
 
     print('Download options: ')
+    print('')
+    print( '-' *5 + '< Video Options >' +'-' *5)
+    print('')
     for i, stream in enumerate(streams):
         print(f'{i+1} - {stream}')
+    print('')
+    print( '-' *5 + '< Audio Options >' +'-' *5)
+    print('')
     for i, audio in enumerate(audios):
         print(f'{i+len(streams)+1} - {audio}')
 
-
+    print('')
     a=int(input(f'What option do you want to download {title}? '))
     a2=a - 1 
     if a2 < len(streams):
@@ -34,4 +40,5 @@ def download(video):
 
 def main():
     video=input('Enter the link to the video: ')
+    print('')
     download(video)
