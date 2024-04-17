@@ -3,7 +3,10 @@ from pytube import YouTube
 
 
 def download(video):
-    yt = YouTube(video)
+    try:
+        yt = YouTube(video)
+    except Exception as e:
+        print(f'An error occurred: {e}')
     title=yt.title
     streams = yt.streams.filter(progressive=True)
     audios = yt.streams.filter(only_audio=True)
