@@ -1,6 +1,7 @@
 from pytube import YouTube
+import os
 
-def download(video):
+def download(video, output):
     try:
         yt = YouTube(video)
     except Exception as e:
@@ -30,13 +31,14 @@ def download(video):
     else:
         selected_stream = audios[a2 - len(streams)]
     print('Downloading...')
-    selected_stream.download()
+    selected_stream.download(output_path=output)
     print('Download complete!')
     main()
 
 
 
 def main():
+    output = os.path.join(os.path.expanduser("~"), "Documents\\Quick YouTube Downloader")
     video=input('Enter the link to the video: ')
     print('')
-    download(video)
+    download(video, output)
