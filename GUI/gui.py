@@ -1,11 +1,16 @@
 import customtkinter as ct
 from pytube import YouTube
 import os
+from CTkMessagebox import CTkMessagebox
+
 
 
 
 def show_options(e1, root):
-    yt = YouTube(e1.get())
+    try:
+        yt = YouTube(e1.get())
+    except:
+        CTkMessagebox(title='Info', message='Missing Link.', icon='question')
     title = yt.title
     for i in range(7):
         bi=ct.CTkButton(root, text=f'Download - {title}')
