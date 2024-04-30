@@ -2,6 +2,12 @@ import customtkinter as ct
 from pytube import YouTube
 import os
 
+
+
+def show_options(e1):
+    print(1)
+
+
 def main(root):
     l1=ct.CTkLabel(root, text='Quick YouTube Downloader')
     l1.pack(pady=20)
@@ -9,7 +15,7 @@ def main(root):
     e1=ct.CTkEntry(root, placeholder_text="Enter the link")
     e1.pack(pady=20)
 
-    b1=ct.CTkButton(root, text="Show download options")
+    b1=ct.CTkButton(root, text="Show download options", command=lambda:show_options(e1))
     b1.pack()
 
 def root():
