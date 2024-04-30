@@ -12,9 +12,10 @@ def show_options(e1, l2, root):
     except:
         CTkMessagebox(title='Info', message='Missing Link.', icon='question')
     title = yt.title
+    streams = yt.streams.filter(progressive=True)
     l2.configure(text=title)
-    for i in range(7):
-        bi=ct.CTkButton(root, text=f'Download - Opção {i+1}')
+    for i in enumerate(streams):
+        bi=ct.CTkButton(root, text=f'Download - Option {streams}')
         bi.pack(pady=10)
 
 def main(root):
