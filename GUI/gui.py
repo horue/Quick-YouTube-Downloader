@@ -14,8 +14,8 @@ def show_options(e1, l2, root):
     title = yt.title
     streams = yt.streams.filter(progressive=True)
     l2.configure(text=title)
-    for i in enumerate(streams):
-        bi=ct.CTkButton(root, text=f'Download - Option {streams}')
+    for stream in enumerate(streams):
+        bi=ct.CTkButton(root, text=f'Download - Option {stream}')
         bi.pack(pady=10)
 
 def main(root):
