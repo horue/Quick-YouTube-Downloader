@@ -5,8 +5,10 @@ import os
 
 
 def show_options(e1, root):
+    yt = YouTube(e1.get())
+    title = yt.title
     for i in range(7):
-        bi=ct.CTkButton(root, text=f'Download - {e1.get()}')
+        bi=ct.CTkButton(root, text=f'Download - {title}')
         bi.pack(pady=10)
 
 def main(root):
