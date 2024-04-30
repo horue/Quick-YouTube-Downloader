@@ -4,9 +4,10 @@ import os
 
 
 
-def show_options(e1):
-    print(1)
-
+def show_options(e1, root):
+    for i in range(7):
+        bi=ct.CTkButton(root, text=f'Test button {i+1}')
+        bi.pack(pady=10)
 
 def main(root):
     l1=ct.CTkLabel(root, text='Quick YouTube Downloader')
@@ -15,7 +16,7 @@ def main(root):
     e1=ct.CTkEntry(root, placeholder_text="Enter the link")
     e1.pack(pady=20)
 
-    b1=ct.CTkButton(root, text="Show download options", command=lambda:show_options(e1))
+    b1=ct.CTkButton(root, text="Show download options", command=lambda:show_options(e1, root))
     b1.pack()
 
 def root():
