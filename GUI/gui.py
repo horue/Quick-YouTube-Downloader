@@ -6,7 +6,7 @@ import os
 
 def show_options(e1, root):
     for i in range(7):
-        bi=ct.CTkButton(root, text=f'Test button {i+1}')
+        bi=ct.CTkButton(root, text=f'Download - {e1.get()}')
         bi.pack(pady=10)
 
 def main(root):
