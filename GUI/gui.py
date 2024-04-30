@@ -1,4 +1,6 @@
 import customtkinter as ct
+from pytube import YouTube
+import os
 
 def main(root):
     l1=ct.CTkLabel(root, text='Quick YouTube Downloader')
