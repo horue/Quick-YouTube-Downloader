@@ -6,7 +6,8 @@ from CTkMessagebox import CTkMessagebox
 def download(stream, audio):
     final = stream
     final = audio
-    final.download()
+    final.download(output_path = 'Desktop')
+
 
 def show_options(e1, l2, root):
     try:
