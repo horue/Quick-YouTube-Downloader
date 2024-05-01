@@ -3,7 +3,10 @@ from pytube import YouTube
 from CTkMessagebox import CTkMessagebox
 
 
-
+def download(stream, audio):
+    final = stream
+    final = audio
+    final.download()
 
 def show_options(e1, l2, root):
     try:
@@ -18,7 +21,7 @@ def show_options(e1, l2, root):
         bi=ct.CTkButton(root, text=f'Download - Option {stream}')
         bi.pack(pady=10)
     for audio in enumerate(audios):
-        bi2=ct.CTkButton(root, text=f'Download - Option {audio}')
+        bi2=ct.CTkButton(root, text=f'Download - Option {audio}', command=lambda:download(stream, audio))
         bi2.pack(pady=10)
 
 def main(root):
