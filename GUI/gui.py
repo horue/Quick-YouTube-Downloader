@@ -18,7 +18,7 @@ def show_options(e1, l2, root):
     audios = yt.streams.filter(only_audio=True)
     l2.configure(text=title)
     for stream in enumerate(streams):
-        bi=ct.CTkButton(root, text=f'Download - Option {stream}')
+        bi=ct.CTkButton(root, text=f'Download - Option {stream}', command=lambda:download(stream, audio))
         bi.pack(pady=10)
     for audio in enumerate(audios):
         bi2=ct.CTkButton(root, text=f'Download - Option {audio}', command=lambda:download(stream, audio))
