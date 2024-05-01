@@ -1,6 +1,7 @@
 import customtkinter as ct
 from pytube import YouTube
 from CTkMessagebox import CTkMessagebox
+import re
 
 
 def download(s, a):
@@ -22,8 +23,11 @@ def show_options(e1, l2, root):
     streams = yt.streams.filter(progressive=True)
     audios = yt.streams.filter(only_audio=True)
     l2.configure(text=title)
+    type = r'(\w+?:res=)(\w+?:type=)'
     for i, stream in enumerate(streams):
-        bi=ct.CTkButton(root, text=f'Download - Option {stream}', command=lambda s=stream:download(s, None))
+        filtere = re.search(type, str(stream))
+        final = filtere.group()
+        bi=ct.CTkButton(root, text=f'Download - Option {final}', command=lambda s=stream:download(s, None))
         bi.pack(pady=10)
     for i, audio in enumerate(audios):
         bi2=ct.CTkButton(root, text=f'Download - Option {audio}', command=lambda a=audio:download(None, a))
