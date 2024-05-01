@@ -1,6 +1,5 @@
 import customtkinter as ct
 from pytube import YouTube
-import os
 from CTkMessagebox import CTkMessagebox
 
 
