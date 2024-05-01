@@ -13,10 +13,14 @@ def show_options(e1, l2, root):
         CTkMessagebox(title='Info', message='Missing Link.', icon='question')
     title = yt.title
     streams = yt.streams.filter(progressive=True)
+    audios = yt.streams.filter(only_audio=True)
     l2.configure(text=title)
     for stream in enumerate(streams):
         bi=ct.CTkButton(root, text=f'Download - Option {stream}')
         bi.pack(pady=10)
+    for audio in enumerate(audios):
+        bi2=ct.CTkButton(root, text=f'Download - Option {audio}')
+        bi2.pack(pady=10)
 
 def main(root):
     l1=ct.CTkLabel(root, text='Quick YouTube Downloader')
