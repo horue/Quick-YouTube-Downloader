@@ -17,7 +17,9 @@ def show_options(e1, l2, root):
     try:
         yt = YouTube(e1.get())
     except:
+        ct.CTkToplevel(title='Info')
         CTkMessagebox(title='Info', message='Missing Link.', icon='question')
+    e1.delete(0, 'end')
     title = yt.title
     streams = yt.streams.filter(progressive=True)
     audios = yt.streams.filter(only_audio=True)
