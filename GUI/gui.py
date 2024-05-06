@@ -48,6 +48,7 @@ def root():
     root = ct.CTk()
     root.geometry("500x650")
     root.title("Quick YouTube Downloader")
+    root.iconbitmap('Visual Stuff\icon.ico')
 
     
     main(root)
