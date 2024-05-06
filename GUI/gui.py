@@ -3,6 +3,16 @@ from pytube import YouTube
 from CTkMessagebox import CTkMessagebox
 
 
+################ IMPORTATNT! ######################
+## If you are running the code, you MUST change  ##
+## cipher.py file from pytube. At line 30, the   ##
+## regex MUST be changed to                      ##
+## var_regex = re.compile(r"^(\w|\$)+\W")        ##
+## otherwise it wont work.                       ##
+###################################################
+
+
+
 def download(s, a):
     if s:
         final_video = s
