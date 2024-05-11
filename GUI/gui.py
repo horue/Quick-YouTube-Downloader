@@ -1,6 +1,6 @@
 import customtkinter as ct
 from pytube import YouTube
-from CTkMessagebox import CTkMessagebox
+from CustomTkinterMessagebox import *
 
 
 ################ IMPORTATNT! ######################
@@ -27,8 +27,7 @@ def show_options(e1, l2, root):
     try:
         yt = YouTube(e1.get())
     except:
-        ct.CTkToplevel(title='Info')
-        CTkMessagebox(title='Info', message='Missing Link.', icon='question')
+        CTkMessagebox.messagebox(title='Warning!', text='Error. No link was given.')
     e1.delete(0, 'end')
     title = yt.title
     streams = yt.streams.filter(progressive=True)
