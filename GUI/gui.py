@@ -23,9 +23,11 @@ def download(s, a):
 
 
 
-def show_options(e1, l2, root):
+def show_options(e1, l2, f1):
     try:
         yt = YouTube(e1.get())
+        for widget in f1.winfo_children():
+            widget.destroy()
     except:
         CTkMessagebox.messagebox(title='Warning!', text='Error. No link was given.')
     e1.delete(0, 'end')
@@ -34,10 +36,10 @@ def show_options(e1, l2, root):
     audios = yt.streams.filter(only_audio=True)
     l2.configure(text=title)
     for i, stream in enumerate(streams):
-        bi=ct.CTkButton(root, text=f'Download - Option {stream}', command=lambda s=stream:download(s, None))
+        bi=ct.CTkButton(f1, text=f'Download - Option {stream}', command=lambda s=stream:download(s, None))
         bi.pack(pady=10)
     for i, audio in enumerate(audios):
-        bi2=ct.CTkButton(root, text=f'Download - Option {audio}', command=lambda a=audio:download(None, a))
+        bi2=ct.CTkButton(f1, text=f'Download - Option {audio}', command=lambda a=audio:download(None, a))
         bi2.pack(pady=10)
 
 def main(root):
@@ -47,11 +49,14 @@ def main(root):
     e1=ct.CTkEntry(root, placeholder_text="Enter the link")
     e1.pack(pady=20)
 
-    b1=ct.CTkButton(root, text="Show download options", command=lambda:show_options(e1, l2, root))
+    b1=ct.CTkButton(root, text="Show download options", command=lambda:show_options(e1, l2, f1))
     b1.pack()
 
     l2=ct.CTkLabel(root, text='No video yet.')
     l2.pack(pady=20)
+
+    f1 = ct.CTkFrame(root, height=1000, fg_color='transparent')
+    f1.pack(fill="x")
 
 def root():
     root = ct.CTk()
