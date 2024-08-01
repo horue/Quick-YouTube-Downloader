@@ -1,6 +1,7 @@
 import customtkinter as ct
 from pytube import YouTube
 from CustomTkinterMessagebox import *
+from tkinter import *
 
 
 ################ IMPORTATNT! ######################
@@ -42,7 +43,13 @@ def show_options(e1, l2, f1):
         bi2=ct.CTkButton(f1, text=f'Download - Option {audio}', command=lambda a=audio:download(None, a))
         bi2.pack(pady=10)
 
+
+
 def main(root):
+    menubar = Menu(root)
+    filemenu = Menu(menubar, tearoff=0)
+    menubar.add_cascade(label="Arquivo", menu=filemenu)
+
     l1=ct.CTkLabel(root, text='Quick YouTube Downloader')
     l1.pack(pady=20)
 
@@ -57,6 +64,8 @@ def main(root):
 
     f1 = ct.CTkFrame(root, height=1000, fg_color='transparent')
     f1.pack(fill="x")
+
+
 
 def root():
     root = ct.CTk()
